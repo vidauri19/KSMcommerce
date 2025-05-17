@@ -4,7 +4,7 @@ let data = {
     userName: "vidauri19",
     password: "testpass",
 };
-describe('Login User spec', () => {
+describe('Login User spec 1', () => {
     it('login as a user', () => {
         cy.visit('/');
         cy.get(registerSelectors.loginRegisterLink).click()
