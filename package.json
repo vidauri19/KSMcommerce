@@ -8,6 +8,8 @@
   },
   "private": true,
   "devDependencies": {
-    "cypress": "^14.3.2"
+    "@types/node": "^24.0.3",
+    "cypress": "^14.3.2",
+    "typescript": "^5.8.3"
   }
 }

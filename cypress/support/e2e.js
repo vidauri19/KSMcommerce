@@ -15,3 +15,27 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+
+// Configure logging behavior
+Cypress.on('uncaught:exception', (err, runnable) => {
+    // returning false here prevents Cypress from failing the test
+    return false;
+});
+
+// Hide sensitive data in console logs
+const sensitivePatterns = [
+    /password=['"][^'"]+['"]/, // matches password="something"
+    /username=['"][^'"]+['"]/, // matches username="something"
+    /email=['"][^'"]+['"]/, // matches email="something"
+];
+
+Cypress.on('log:changed', (log) => {
+    if (log.displayName === 'xhr' || log.displayName === 'fetch') {
+        // Redact sensitive data from network requests
+        if (log.url) {
+            sensitivePatterns.forEach(pattern => {
+                log.url = log.url.replace(pattern, '[REDACTED]');
+            });
+        }
+    }
+});

@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["es5", "dom"],
+    "types": ["cypress", "node"],
+    "allowJs": true,
+    "noEmit": true,
+    "isolatedModules": false,
+    "strict": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["cypress/*"]
+    }
+  },
+  "include": ["**/*.ts", "cypress/**/*.ts", "cypress/**/*.js"],
+  "exclude": ["node_modules"]
+} 

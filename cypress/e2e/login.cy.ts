@@ -1,14 +1,13 @@
 import {registerSelectors} from "../POM/registerSelectors";
-
-let data = {
-    userName: "vidauri19",
-    password: "testpass",
-};
+import {loginSelectors} from "../POM/loginSelectors";
 
 describe('Login spec', () => {
     it('login as a user', () => {
         cy.visit('/');
         cy.get(registerSelectors.loginRegisterLink).click()
-        cy.login(data.userName, data.password);
+        cy.login(
+            Cypress.env('TEST_USER_USERNAME'),
+            Cypress.env('TEST_USER_PASSWORD')
+        );
     })
-})
+}) 
